@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="container">
+        {% for post in posts %}
+        <div class="post">
+            <img width="100px" src="{{ asset(post.img) }}">
+            <a href="{{ url('post', {post_title: post.title}) }}" ><h2>{{ post.title }}</h2></a>
+            <p>{{ post.author }}</p>
+            <p>{{ post.body | truncate(500) | raw }}</p>
+            <a href="{{ url('post', {post_title: post.title}) }}" >Czytaj więcej</a>
+        </div>
+        {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(posts) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    #container {
+        width: 600px;
+        margin: 0 auto;
+    }
+.post {
+    display: block;
+    min-height: 150px;
+    margin-top: 15px;
+}
+</style>
+{% endblock %}
