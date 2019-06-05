@@ -17,7 +17,7 @@ class DefaultController extends Controller
     {
         $repo = $this->getDoctrine()
             ->getRepository(BlogPost::class);
-        return $this->render('default/index.html.twig', [
+        return $this->render('blog/home.html.twig', [
             'posts' => $paginator->paginate($repo->findAllCurrentPosts(),$request->query->getInt('page',1),3)
         ]);
     }

@@ -10,8 +10,11 @@
             <a href="{{ url('post', {post_title: post.title}) }}" >Czytaj więcej</a>
         </div>
         {% endfor %}
-        <div class="navigation">
-            {{ knp_pagination_render(posts) }}
+        <!-- Pager -->
+        <div class="clearfix">
+            <div class="navigation">
+                {{ knp_pagination_render(posts) }}
+            </div>
         </div>
     </div>
 {% endblock %}
