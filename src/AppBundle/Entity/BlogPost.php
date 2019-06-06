@@ -30,8 +30,8 @@ class BlogPost
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Author", inversedBy="blogPosts")
      */
     private $author;
 
@@ -39,7 +39,6 @@ class BlogPost
      * @var string
      *
      * @ORM\Column(name="img", type="string", length=255)
-     * @ORM\ManyToOne(targetEntity="Author", inversedBy="blogPosts")
      */
     private $img;
 

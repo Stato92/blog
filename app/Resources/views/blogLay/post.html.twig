@@ -1,0 +1,24 @@
+{% extends 'blogLay/base.html.twig' %}
+{% block header %}
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-4">
+            <h1 class="display-3">{{ post.title }}</h1>
+            <p class="lead">Posted by
+              <a href="#">{{ post.author }}</a>
+              on {{ post.published|date("d M Y") }}</p>
+        </header>
+{% endblock %}
+
+{% block content %}
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                    <p>{{ post.body|raw }}</p>
+                    <p><a href="{{ app.request.headers.get('referer') }}"><span class="fa fa-arrow-alt-circle-left"></span> Back</a></p>
+            </div>
+        </div>
+    </article>
+{% endblock %}
