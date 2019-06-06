@@ -1,25 +1,32 @@
 {% extends 'base.html.twig' %}
 {% block content %}
-    {% for post in posts %}
-    <div class="post-preview">
-        <a href="{{ url('post', {post_title: post.title}) }}">
-            <h2 class="post-title">
-                {{ post.title }}
-            </h2>
-            <h3 class="post-subtitle">
-                {{ post.body | truncate(300) | raw }}
-            </h3>
-        </a>
-        <p class="post-meta">Posted by
-            {{ post.author }}
-            on {{ post.published|date("d M Y") }}</p>
-    </div>
-    <hr>
-    {% endfor %}
-    <!-- Pager -->
-    <div class="clearfix">
-        <div class="navigation">
-            {{ knp_pagination_render(posts) }}
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% for post in posts %}
+                    <div class="post-preview">
+                        <a href="{{ url('post', {post_title: post.title}) }}">
+                            <h2 class="post-title">
+                                {{ post.title }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{ post.sumup | truncate(300) | raw }}
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted by
+                            {{ post.author }}
+                            on {{ post.published|date("d M Y") }}</p>
+                    </div>
+                    <hr>
+                {% endfor %}
+                <!-- Pager -->
+                <div class="clearfix">
+                    <div class="navigation">
+                        {{ knp_pagination_render(posts) }}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

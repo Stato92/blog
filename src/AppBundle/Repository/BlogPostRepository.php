@@ -15,7 +15,7 @@ public function findAllCurrentPosts() {
     $qb = $this->createQueryBuilder('p')
         ->andWhere('p.published < :now')
         ->setParameter('now', $now)
-        ->orderBy('p.published', 'ASC')
+        ->orderBy('p.published', 'DESC')
         ->getQuery();
     return $qb->execute();
 }

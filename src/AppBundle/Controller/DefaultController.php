@@ -18,7 +18,7 @@ class DefaultController extends Controller
         $repo = $this->getDoctrine()
             ->getRepository(BlogPost::class);
         return $this->render('blog/home.html.twig', [
-            'posts' => $paginator->paginate($repo->findAllCurrentPosts(),$request->query->getInt('page',1),3)
+            'posts' => $paginator->paginate($repo->findAllCurrentPosts(), $request->query->getInt('page', 1), 5)
         ]);
     }
     /**
@@ -30,7 +30,7 @@ class DefaultController extends Controller
             ->getRepository(BlogPost::class)
             ->findOneByTitle($post_title);
         // replace this example code with whatever you need
-        return $this->render('default/post.html.twig', [
+        return $this->render('blog/post.html.twig', [
             'post' => $post,
         ]);
     }

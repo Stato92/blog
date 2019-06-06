@@ -21,7 +21,7 @@ class BlogPostAdmin extends AbstractAdmin
             ->add('title', 'text')
             ->add('img', 'text')
             ->add('body', CKEditorType::class)
-            ->add('sumup', 'textarea')
+            ->add('sumup', CKEditorType::class)
             ->end()
 
             ->with('Meta data')
